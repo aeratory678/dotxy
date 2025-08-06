@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dotxy.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+        }
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        #audio-ui {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        #audio-controls-row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        #audio-upload {
+            margin-right: 10px;
+        }
+        #audio-progress-container {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+        #audio-progress {
+            height: 100%;
+            background: #76c7c0;
+            width: 0;
+        }
+        #audio-filename {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: #444;
+            margin-top: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="fractal"></canvas>
+    <div id="audio-ui">
+        <div id="audio-controls-row">
+            <label for="audio-upload" id="audio-upload-label">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#76c7c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <input type="file" id="audio-upload" accept="audio/*" style="display:none;">
+            </label>
+            <button id="audio-playpause">
+                <svg id="play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#76c7c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <svg id="pause-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#76c7c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </button>
+            <div id="audio-progress-container">
+                <div id="audio-progress"></div>
+            </div>
+        </div>
+        <span id="audio-filename"></span>
+    </div>
+    <audio id="audio-player" style="display:none;"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

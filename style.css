@@ -1,0 +1,98 @@
+body {
+    background: radial-gradient(circle at center, #222 60%, #111 100%);
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#audio-ui {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 24px 28px 18px 28px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 340px;
+    box-shadow: 0 2px 16px #0002;
+    z-index: 10;
+}
+
+#audio-controls-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#audio-upload-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+#audio-upload-label svg {
+    display: block;
+}
+
+#audio-playpause {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    outline: none;
+}
+
+#audio-playpause svg {
+    display: block;
+}
+
+#audio-progress-container {
+    width: 260px;
+    height: 18px;
+    background: linear-gradient(90deg, #eee, #ddd);
+    border-radius: 9px;
+    overflow: hidden;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#audio-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #0ff, #f0f, #ff0, #0f0, #f00, #00f);
+    width: 0%;
+    border-radius: 9px;
+    transition: width 0.2s;
+}
+
+#audio-filename {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #444;
+    margin-top: 8px;
+    margin-left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 260px;
+}
